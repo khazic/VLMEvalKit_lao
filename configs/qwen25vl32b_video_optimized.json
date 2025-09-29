@@ -1,0 +1,42 @@
+{
+  "model": {
+    "Qwen2.5VL32B_local_video": {
+      "class": "Qwen2VLChat",
+      "model_path": "/xfr_ceph_sh/liuchonghan/cvpr/Qwen2.5-VL-32B-Instruct",
+      "min_pixels": 100352,
+      "max_pixels": 400000,
+      "total_pixels": 10000000,
+      "use_custom_prompt": false,
+      "use_flash_attention": false
+    }
+  },
+  "data": {
+    "VCRBench_8frame_nopack": {},
+    "MMBench_Video_8frame_nopack": {},
+    "MVBench_8frame": {},
+    "Video-MME_8frame": {},
+    "LongVideoBench_8frame": {},
+    "MLVU_8frame": {},
+    "MLVU_MCQ_8frame": {},
+    "MLVU_OpenEnded_8frame": {},
+    "TempCompass_8frame": {},
+    "TempCompass_MCQ_8frame": {},
+    "TempCompass_Captioning_8frame": {},
+    "TempCompass_YorN_8frame": {},
+    "CGBench_MCQ_Grounding_Mini_8frame_subs_subt": {},
+    "CGBench_OpenEnded_Mini_8frame_subs_subt_ft": {},
+    "CGBench_OpenEnded_8frame": {},
+    "MEGABench_core_16frame": {},
+    "MEGABench_open_16frame": {},
+    "moviechat1k_breakpoint_8frame": {},
+    "VDC_8frame": {},
+    "WorldSense_8frame": {},
+    "QBench_Video_8frame": {},
+    "QBench_Video_MCQ_8frame": {},
+    "Video_MMLU_CAP_16frame": {},
+    "Video_MMLU_QA_16frame": {},
+    "Video_Holmes_32frame": {},
+    "CG-AV-Counting_32frame": {},
+    "EgoExoBench_64frame": {}
+  }
+}
