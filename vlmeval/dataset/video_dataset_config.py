@@ -57,11 +57,35 @@ mlvu_dataset = {
     'MLVU_1fps': partial(MLVU, dataset='MLVU', fps=1.0)
 }
 
+mlvu_task_dataset = {
+    'MLVU_MCQ_8frame': partial(MLVU_MCQ, dataset='MLVU_MCQ', nframe=8),
+    'MLVU_MCQ_64frame': partial(MLVU_MCQ, dataset='MLVU_MCQ', nframe=64),
+    'MLVU_MCQ_1fps': partial(MLVU_MCQ, dataset='MLVU_MCQ', fps=1.0),
+    'MLVU_OpenEnded_8frame': partial(MLVU_OpenEnded, dataset='MLVU_OpenEnded', nframe=8),
+    'MLVU_OpenEnded_64frame': partial(MLVU_OpenEnded, dataset='MLVU_OpenEnded', nframe=64),
+    'MLVU_OpenEnded_1fps': partial(MLVU_OpenEnded, dataset='MLVU_OpenEnded', fps=1.0)
+}
+
 tempcompass_dataset = {
     'TempCompass_8frame': partial(TempCompass, dataset='TempCompass', nframe=8),
     'TempCompass_64frame': partial(TempCompass, dataset='TempCompass', nframe=64),
     'TempCompass_1fps': partial(TempCompass, dataset='TempCompass', fps=1.0),
     'TempCompass_0.5fps': partial(TempCompass, dataset='TempCompass', fps=0.5)
+}
+
+tempcompass_task_dataset = {
+    'TempCompass_MCQ_8frame': partial(TempCompass_MCQ, dataset='TempCompass_MCQ', nframe=8),
+    'TempCompass_MCQ_64frame': partial(TempCompass_MCQ, dataset='TempCompass_MCQ', nframe=64),
+    'TempCompass_MCQ_1fps': partial(TempCompass_MCQ, dataset='TempCompass_MCQ', fps=1.0),
+    'TempCompass_MCQ_0.5fps': partial(TempCompass_MCQ, dataset='TempCompass_MCQ', fps=0.5),
+    'TempCompass_Captioning_8frame': partial(TempCompass_Captioning, dataset='TempCompass_Captioning', nframe=8),
+    'TempCompass_Captioning_64frame': partial(TempCompass_Captioning, dataset='TempCompass_Captioning', nframe=64),
+    'TempCompass_Captioning_1fps': partial(TempCompass_Captioning, dataset='TempCompass_Captioning', fps=1.0),
+    'TempCompass_Captioning_0.5fps': partial(TempCompass_Captioning, dataset='TempCompass_Captioning', fps=0.5),
+    'TempCompass_YorN_8frame': partial(TempCompass_YorN, dataset='TempCompass_YorN', nframe=8),
+    'TempCompass_YorN_64frame': partial(TempCompass_YorN, dataset='TempCompass_YorN', nframe=64),
+    'TempCompass_YorN_1fps': partial(TempCompass_YorN, dataset='TempCompass_YorN', fps=1.0),
+    'TempCompass_YorN_0.5fps': partial(TempCompass_YorN, dataset='TempCompass_YorN', fps=0.5)
 }
 
 # In order to reproduce the experimental results in CGbench paper,
@@ -156,6 +180,13 @@ qbench_video_dataset = {
     'QBench_Video_16frame': partial(QBench_Video, dataset='QBench_Video', nframe=16),
 }
 
+qbench_video_task_dataset = {
+    'QBench_Video_MCQ_8frame': partial(QBench_Video_MCQ, dataset='QBench_Video_MCQ', nframe=8),
+    'QBench_Video_MCQ_16frame': partial(QBench_Video_MCQ, dataset='QBench_Video_MCQ', nframe=16),
+    'QBench_Video_VQA_8frame': partial(QBench_Video_VQA, dataset='QBench_Video_VQA', nframe=8),
+    'QBench_Video_VQA_16frame': partial(QBench_Video_VQA, dataset='QBench_Video_VQA', nframe=16),
+}
+
 video_mmlu_dataset = {
     'Video_MMLU_CAP_16frame': partial(Video_MMLU_CAP, dataset='Video_MMLU_CAP', nframe=16),
     'Video_MMLU_CAP_64frame': partial(Video_MMLU_CAP, dataset='Video_MMLU_CAP', nframe=64),
@@ -183,9 +214,9 @@ supported_video_datasets = {}
 
 dataset_groups = [
     mmbench_video_dataset, mvbench_dataset, videomme_dataset, longvideobench_dataset,
-    mlvu_dataset, tempcompass_dataset, cgbench_dataset, worldsense_dataset, tamperbench_dataset,
-    megabench_dataset, qbench_video_dataset, moviechat1k_dataset, vdc_dataset, video_holmes_dataset, vcrbench_dataset,
-    cg_av_counting_dataset, video_mmlu_dataset, egoexobench_dataset
+    mlvu_dataset, mlvu_task_dataset, tempcompass_dataset, tempcompass_task_dataset, cgbench_dataset, worldsense_dataset,
+    tamperbench_dataset, megabench_dataset, qbench_video_dataset, qbench_video_task_dataset, moviechat1k_dataset,
+    vdc_dataset, video_holmes_dataset, vcrbench_dataset, cg_av_counting_dataset, video_mmlu_dataset, egoexobench_dataset
 ]
 
 for grp in dataset_groups:
