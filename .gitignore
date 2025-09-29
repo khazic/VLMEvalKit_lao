@@ -203,6 +203,7 @@ run_g.sh
 tmp/
 InternVL*
 Qwen*
+!configs/Qwen*
 CongRong*
 Seed1.5*
 aguvis*
