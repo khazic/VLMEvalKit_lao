@@ -192,6 +192,7 @@ class Qwen2VLChat(Qwen2VLPromptMixin, BaseModel):
         post_process: bool = False,  # if True, will try to only extract stuff in the last \boxed{}.
         verbose: bool = False,
         use_audio_in_video: bool = False,
+        use_flash_attention: bool = False,  # Add parameter to control FlashAttention2
         **kwargs,
     ):
         super().__init__(use_custom_prompt=use_custom_prompt)
@@ -287,9 +288,20 @@ class Qwen2VLChat(Qwen2VLPromptMixin, BaseModel):
             torch.cuda.set_device(0)
             self.device = 'cuda'
         else:
-            self.model = MODEL_CLS.from_pretrained(
-                model_path, torch_dtype='auto', device_map="auto", attn_implementation='flash_attention_2'
-            )
+            # Choose attention implementation based on use_flash_attention parameter
+            attn_impl = 'flash_attention_2' if use_flash_attention else 'eager'
+            try:
+                self.model = MODEL_CLS.from_pretrained(
+                    model_path, torch_dtype='auto', device_map="auto", attn_implementation=attn_impl
+                )
+            except Exception as e:
+                if use_flash_attention:
+                    print(f"FlashAttention2 failed, falling back to eager attention: {e}")
+                    self.model = MODEL_CLS.from_pretrained(
+                        model_path, torch_dtype='auto', device_map="auto", attn_implementation='eager'
+                    )
+                else:
+                    raise e
             self.model.eval()
 
         torch.cuda.empty_cache()

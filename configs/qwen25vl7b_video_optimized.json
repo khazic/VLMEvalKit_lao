@@ -6,7 +6,8 @@
       "min_pixels": 100352,
       "max_pixels": 400000,
       "total_pixels": 10000000,
-      "use_custom_prompt": false
+      "use_custom_prompt": false,
+      "use_flash_attention": false
     }
   },
   "data": {
